@@ -1,0 +1,5 @@
+- name: jbossグループを作成
+  group: name="{{ jboss_group }}"
+
+- name: jbossユーザーを作成
+  user: name="{{ jboss_owner }}" group="{{ jboss_group }}" home="{{ jboss_dir }}"

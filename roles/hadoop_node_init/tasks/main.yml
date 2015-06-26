@@ -1,0 +1,5 @@
+- name : iptablesを無効化
+  service: name=iptables state=stopped enabled=no
+
+- include: install.yml
+- include: ambari.yml

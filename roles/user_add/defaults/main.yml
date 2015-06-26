@@ -1,0 +1,5 @@
+user_add_users:
+  shirou:
+    name: shirou
+    groups: root
+    key: https://github.com/shirou.keys

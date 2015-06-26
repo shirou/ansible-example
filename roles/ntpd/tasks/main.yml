@@ -1,0 +1,3 @@
+- name: ntpdをインストール
+  yum: name=ntp state=installed
+  notify: ntpd started

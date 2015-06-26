@@ -1,0 +1,6 @@
+- name: standalone.xml configuration file
+  template: src=standalone.xml dest="{{ jboss_dir }}/standalone/configuration/"
+  notify: restart jboss
+
+- name: init scriptを設定
+  template: src=jboss-as-standalone.sh dest=/etc/init.d/jboss mode=0755

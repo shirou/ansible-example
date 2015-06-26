@@ -1,0 +1,6 @@
+td_agent_plugins:
+  - fluent-plugin-pghstore
+  - fluent-plugin-webhdfs
+common_centos_7_pkgs:
+  - sysstat
+  - dstat

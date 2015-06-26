@@ -1,0 +1,17 @@
+- name: 依存パッケージインストール
+  yum: name="{{ item }}" state=installed
+  with_items: jboss_pkgs
+
+- name: JBoss を jboss.orgからダウンロード
+  get_url: url="{{ jboss_download_url }}" dest=/opt/jboss-as-7.1.1.Final.zip
+
+- name: zipファイル展開
+  unarchive:
+    copy=no
+    src=/opt/jboss-as-7.1.1.Final.zip 
+    dest=/usr/share
+    creates="{{ jboss_dir }}/README.txt"
+
+- name: jboss_dir以下に移動
+  shell: mv /usr/share/jboss-as-7.1.1.Final/* "{{ jboss_dir }}" creates="{{ jboss_dir }}/README.txt"
+

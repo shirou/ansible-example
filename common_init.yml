@@ -1,0 +1,8 @@
+- hosts: all
+  remote_user: root
+  vars_files:
+    - vars/default_values.yml
+  roles:
+    - { role: user_add, tags: ['user_add'] }
+    - { role: common, tags: ['common'] }
+    - { role: td-agent, tags: ['td-agent'] }

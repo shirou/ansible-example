@@ -1,0 +1,3 @@
+- name: pluginインストール
+  gem: name="{{ item }}" state=present executable=/usr/sbin/td-agent-gem user_install=no
+  with_items: td_agent_plugins  # _ でなくてはならない

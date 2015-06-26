@@ -1,0 +1,8 @@
+- hosts: jboss
+  become: yes
+  remote_user: shirou
+  vars_files:
+    - vars/default_values.yml
+    - vars/jboss_values.yml
+  roles:
+    - { role: jboss, tags: ['jboss'] }

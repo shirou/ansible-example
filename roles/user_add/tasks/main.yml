@@ -1,0 +1,23 @@
+- name: 各ユーザーを作成
+  user:
+    name="{{ item.value.name }}"
+    groups="{{ item.value.groups }}"
+  with_dict: user_add_users
+- name: sudersファイル作成
+  template: src=sudoers.j2 dest="/etc/sudoers.d/{{ item.value.name }}"
+  with_dict: user_add_users
+
+- name: 各人のPubKeyをGithubからローカルにダウンロード
+  sudo: no
+  get_url:
+    url="{{ item.value.key }}" dest="/tmp/{{ item.value.name }}.authorized_keys"
+    validate_certs=no
+  delegate_to: localhost
+  with_dict: user_add_users
+  run_once: true
+- name: 各ユーザーにpubkeyを追加
+  authorized_key:
+    user="{{ item.value.name }}"
+    key="{{ lookup('file', '/tmp/' + item.value.name + '.authorized_keys' ) }}"
+  with_dict: user_add_users
+

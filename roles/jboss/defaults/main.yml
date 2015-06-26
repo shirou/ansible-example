@@ -1,0 +1,12 @@
+jboss_pkgs:
+  - java-1.7.0-openjdk
+  - unzip
+
+jboss_download_url: http://download.jboss.org/jbossas/7.1/jboss-as-7.1.1.Final/jboss-as-7.1.1.Final.zip
+jboss_dir: /usr/share/jboss-as
+
+jboss_http_port: 8000
+jboss_https_port: 8843
+
+jboss_owner: jboss
+jboss_group: jboss

@@ -1,0 +1,16 @@
+- name: ambariリポジトリ登録
+  get_url:
+    url="{{ hadoop_node_init_ambari_repo_url }}"
+    dest=/etc/yum.repos.d/ambari.repo
+
+- name: ambari-agentインストール
+  yum: name=ambari-agent update_cache=yes
+
+- name: configure ambari-agent
+  template: src=ambari-agent.ini.j2 dest=/etc/ambari-agent/conf/ambari-agent.ini
+
+- name: ambari-agent 起動
+  service: name=ambari-agent state=started enabled=yes
+
+- name: serverへの登録のため10秒待つ
+  command: sleep 10

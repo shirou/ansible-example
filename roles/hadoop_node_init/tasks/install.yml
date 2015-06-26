@@ -1,0 +1,2 @@
+- yum: name="{{ item }}"
+  with_items: hadoop_node_init_pkgs

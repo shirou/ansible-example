@@ -1,0 +1,2 @@
+[jboss]
+jboss1 ansible_ssh_host=192.0.2.10

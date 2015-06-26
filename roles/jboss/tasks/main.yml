@@ -1,0 +1,6 @@
+- include: user.yml
+- include: install.yml
+- include: config.yml
+
+- name: jbossを起動時に有効化
+  service: name=jboss enabled=yes state=started 

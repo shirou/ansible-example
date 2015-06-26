@@ -1,0 +1,6 @@
+- name: epelをインストール
+  yum: name="epel-release" update_cache=yes
+
+- name: CentOS7用インストール
+  yum: name="{{ item }}" update_cache=yes
+  with_items: common_centos_7_pkgs

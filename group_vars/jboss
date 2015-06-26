@@ -1,0 +1,3 @@
+hostname_suffix: example.net
+timezone: "Asia/Tokyo"
+ansible_become_method: sudo

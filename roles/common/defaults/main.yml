@@ -1,0 +1,4 @@
+common_centos_7_pkgs:
+  - sysstat
+  - dstat
+timezone: Asia/Tokyo

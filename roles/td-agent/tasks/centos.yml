@@ -1,0 +1,9 @@
+- name: install-redhat-td-agent2.shをダウンロード
+  shell:
+    curl -L https://td-toolbelt.herokuapp.com/sh/install-redhat-td-agent2.sh | sh
+    creates="/usr/sbin/td-agent"
+  notify:
+    - restart td-agent
+
+- name: 起動時にtd-agentを立ち上がるようにする
+  service: name=td-agent state=started enabled=yes

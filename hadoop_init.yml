@@ -1,0 +1,6 @@
+- hosts: all
+  vars_files:
+    - vars/default_values.yml
+  roles:
+    - { role: ntpd, tags: ['ntpd'] }
+    - { role: hadoop_node_init, tags: ['init'] }
